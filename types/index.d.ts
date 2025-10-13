@@ -16,20 +16,13 @@ interface Resume {
 
 interface Feedback {
   overallScore: number;
-  ATS: {
-    score: number;
-    tips: {
-      type: "good" | "improve";
-      tip: string;
-    }[];
+  ats_compatibility: {
+    rating: number;
+    feedback:string ;
   };
-  toneAndStyle: {
-    score: number;
-    tips: {
-      type: "good" | "improve";
-      tip: string;
-      explanation: string;
-    }[];
+  job_match_analysis: {
+    rating: number;
+   feedback:string ;
   };
   content: {
     score: number;
