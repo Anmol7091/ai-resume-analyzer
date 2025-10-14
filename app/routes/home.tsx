@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 
 import Navbar from '~/components/Navbar';
-import ResumeCard from '../../types/ResumeCard';
+import ResumeCard from '~/components/ResumeCard';
 
 export function meta({}: Route.MetaArgs) {
   return [
