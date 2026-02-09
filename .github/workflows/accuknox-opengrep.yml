@@ -18,5 +18,5 @@ jobs:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
           accuknox_tenant: ${{ secrets.ACCUKNOX_TENANT_ID }}
-          accuknox_label: anmolSast
+          accuknox_label: anmologsast
           input_soft_fail: true
