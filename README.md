@@ -35,6 +35,7 @@ npm start
 App runs on: http://localhost:3000 (or your configured port)
 
 🧪 How It Works
+
 Upload or paste your resume
 Enter a job description
 AI analyzes and compares both
