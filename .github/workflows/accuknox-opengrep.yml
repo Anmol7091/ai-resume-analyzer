@@ -17,6 +17,25 @@ jobs:
         with:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_tenant: ${{ secrets.ACCUKNOX_TENANT_ID }}
           accuknox_label: anmologsast
           input_soft_fail: true
+
+  Container-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.0.0
+      - name: Run AccuKnox Container Scanner
+        uses: accuknox/container-scan-action@latest
+        with:
+          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
+          accuknox_label: TESTSBOMSERAN
+          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
+          image_name: "test-ai-resume-analyser"
+          tag: "latest"
+          severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+          soft_fail: true
+          upload_results: true
+          generate_sbom: true
+          dockerfile_context: Dockerfile
+          project_name: "Project Test SBOM"
