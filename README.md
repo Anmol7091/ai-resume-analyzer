@@ -1,4 +1,4 @@
-🚀 AI Resume Analyzer
+🚀 AI Resume Analyzer.
 
 An intelligent resume analysis tool built using React Router and powered by Artificial Intelligence (AI) to evaluate resumes against job descriptions.
 
