@@ -1,41 +1,24 @@
-name: AccuKnox SAST Scan Workflow
+name: Accuknox SAST
 
 on:
   push:
     branches:
-      - 'main'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  tests:
+  accuknox-cicd:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
 
-      - name: Accuknox SAST
-        uses: accuknox/sast-scan-opengrep-action@1.0.0
+      - name: "Run Accuknox SAST: Opengrep"
+        uses: accuknox/sast-scan-opengrep-action@latest
         with:
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: anmologsast
-          input_soft_fail: true
-
-  Container-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4.0.0
-      - name: Run AccuKnox Container Scanner
-        uses: accuknox/container-scan-action@latest
-        with:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_label: TESTSBOMSERAN
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          image_name: "test-ai-resume-analyser"
-          tag: "latest"
-          severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
-          soft_fail: true
-          upload_results: true
-          generate_sbom: true
-          dockerfile_context: Dockerfile
-          project_name: "Project Test SBOM"
+          accuknox_label: testsast
+          soft_fail: "true"
